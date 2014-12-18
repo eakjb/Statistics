@@ -4,21 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class NDObject extends HashMap<Dimension,Double> {
+public class NDObject extends HashMap<NDDimension,Double> {
 	private static final long serialVersionUID = 5352876702072155067L;
 	
 	private String name;
-	private Map<Dimension,Double> properties;
+	private Map<NDDimension,Double> properties;
 	
 	public NDObject(String name) {
 		this.name=name;
 	}
 	
-	public double getWeightedProperty(Dimension d) {
+	public double getWeightedProperty(NDDimension d) {
 		return d.getWeight()*this.get(d);
 	}
 	
-	public Set<Dimension> getDimensions() {
+	public Set<NDDimension> getDimensions() {
 		return this.properties.keySet();
 	}
 	
@@ -39,7 +39,7 @@ public class NDObject extends HashMap<Dimension,Double> {
 		StringBuilder b = new StringBuilder();
 		b.append(this.getName());
 		b.append(" [");
-		for (Dimension d : this.keySet()) {
+		for (NDDimension d : this.keySet()) {
 			b.append(d.getName());
 			b.append(":");
 			b.append(this.get(d));

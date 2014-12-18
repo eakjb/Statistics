@@ -13,7 +13,7 @@ public class NDInstance extends NDObject  implements Comparable<NDInstance> {
 	public int compareTo(NDInstance o) {
 		if (!this.canCompare(o)) throw new IllegalArgumentException("Objects must be comarable!");
 		double delta = 0;
-		for (Dimension d : this.keySet()) {
+		for (NDDimension d : this.keySet()) {
 			delta+=Math.round(Math.abs((this.getWeightedProperty(d)
 					-this.getArchitype().getWeightedProperty(d)))-Math.abs((o.getWeightedProperty(d)
 					-this.getArchitype().getWeightedProperty(d))));

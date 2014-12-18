@@ -19,10 +19,10 @@ public class Statistics {
 		List<CSVRecord> records = CSVFormat.EXCEL.parse(in).getRecords();
 		
 		NDObject architype = new NDObject("Architype");
-		List<Dimension> dimensions = new ArrayList<Dimension>();
+		List<NDDimension> dimensions = new ArrayList<NDDimension>();
 		
 		for (int y=1;y<records.get(0).size();y++) {
-			Dimension d = new Dimension(records.get(0).get(y),Double.parseDouble(records.get(1).get(y)));
+			NDDimension d = new NDDimension(records.get(0).get(y),Double.parseDouble(records.get(1).get(y)));
 			dimensions.add(d);
 			architype.put(d, Double.parseDouble(records.get(2).get(y)));
 		}
